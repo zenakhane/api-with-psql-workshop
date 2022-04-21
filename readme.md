@@ -2,7 +2,7 @@
 
 This workshop builds on the [psql refresher workshop]() you should use SQL that you wrote in that workshop to create the API endpoints needed to make the Unit Tests pass. 
 
-> **The aim is** for you wrap the SQL you created in that workshop in a ExpressJS API.
+> **The aim is** for you to use the SQL you created in that workshop to create a ExpressJS API.
 
 Run the tests using `npm test` and make the tests pass by implementing the require API calls in `./api.js`.
 
@@ -33,7 +33,7 @@ Ensure a `garment_app` database is configured.
 
 As was used for the `psql refresher workshop`.
 
-> *Note:* if you have done the `psql refresher workshop` your your database will configured already.
+> *Note:* if you have done the `psql refresher workshop` your database will configured already.
 
 ## Using a local database
 
@@ -69,7 +69,7 @@ Add the following entry to you `.env` file in the root of your project.
 DATABASE_URL=postgres://gary:gar123@localhost:5432/garment_app
 ```
 
-## Create the garment table for
+## Create the garment table
 
 Run the `sql/garment.sql` script locally as the `gary` user and not the `postgres` user.
 
