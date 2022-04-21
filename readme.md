@@ -6,11 +6,34 @@ This workshop builds on the [psql refresher workshop]() you should use SQL that 
 
 Run the tests using `npm test` and make the tests pass by implementing the require API calls in `./api.js`.
 
+## Get going
+
+To get going fork and clone this repository into you projects folder.
+
+The run an `npm install`.
+
+After that run a `npm test` see the failing test and fix/add the routes in the `api.js` file.
+
+The unit tests in `test.api.js` starts up the routes via `supertest` and check that the routes does behave appropriately. **Don't change** the `test.api.js` file.
+
+The api end points returns data in this format:
+
+```
+{
+	status: 'success',
+	data: []   // returned dataset here
+}
+```
+
+There is a mix of `get, post, put & delete` routes that needs to be created.
+
 ## Database setup
 
 Ensure a `garment_app` database is configured.
 
-Add was used for the `psql refresher workshop`.
+As was used for the `psql refresher workshop`.
+
+> *Note:* if you have done the `psql refresher workshop` your your database will configured already.
 
 ## Using a local database
 
