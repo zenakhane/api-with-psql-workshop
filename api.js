@@ -2,23 +2,31 @@ module.exports = function (app, db) {
 
 	app.get('/api/test', function (req, res) {
 		res.json({
-			name: ''
+			name: 'joe'
 		});
 	});
 
 	app.get('/api/garments', async function (req, res) {
 
 		const { gender, season } = req.query;
-		let garments = [];
+		let garments = await db.many(`select * from garment`);
+		if(season) {
+			garments = await db.many(`select * from garment where season = $1`, [season]);
+		}
 		// add some sql queries that filter on gender & season
-
+		
 		res.json({
 			data: garments
 		})
 	});
 
 	app.put('/api/garment/:id', async function (req, res) {
+		const { gender, season } = req.query;
+		let garments = await db.many(`select * from garment`);
+		if(season) {
+		garments =	await db.none(`update garment set gender ='Unisex' where description ='Red hooded jacket'`)
 
+		}
 		try {
 
 			// use an update query...
