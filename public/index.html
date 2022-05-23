@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Missy Tee - clothing store</title>
+	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+	<link rel="stylesheet" href="../style.css">
+	<script src="index.js"></script>
+</head>
+
+<body>
+
+	<div x-data="app">
+		<h1>Missy Tee</h1>
+		<div class="missy">
+		   <div class="filter">
+			  <h2>Filter</h2>
+			  <div class="genders">
+				 <label>
+				 <input type="radio" name="gender" value="All"> All
+				 </label>
+				 <label>
+				 <input type="radio" x-model="genderFilter" @change="filterData()" name="gender" value="Male"> Male
+				 </label>
+				 <label>
+				 <input type="radio" name="gender" value="Female"> Female
+				 </label>
+				 <label>
+				 <input type="radio" name="gender" value="Unisex"> Unisex
+				 </label>
+			  </div>
+			  <div class="seasons">
+				 <label>
+				 <input type="radio" name="season" value="All"> All
+				 </label>
+				 <label>
+				 <input type="radio" name="season" value="Summer"> Summer
+				 </label>
+				 <label>
+				 <input type="radio" name="season" value="Winter"> Winter
+				 </label>
+				 <label>
+				 <input type="radio" name="season" value="All Seasons"> All seasons
+				 </label>
+			  </div>
+			  <div>
+				 Filter by price range:
+				 <input type="range" name="priceRange" max="1000" step="50" class="priceRange" value="0">
+				 R<span class="showPriceRange">0</span>.00
+			  </div>
+		   </div>
+
+		<div class="message hidden" >
+
+		</div>
+		   <div>
+			  <h2>Garments <span x-text="garments.length"></span></h2>
+			  <div class="searchResults">
+			  </div>
+		   </div>
+		</div>
+		<div >
+		   <ul class="garments">
+			  <template x-for="garment in garments">
+				 <div class="garment">
+					<li x-text="garment.description"></li>
+					<img :src="`/images/${garment.img}`">
+					<li x-text="garment.price"></li>
+					<li x-text="garment.season"></li>
+					<li x-text="garment.gender"></li>
+				 </div>
+			  </template>
+		   </ul>
+		</div>
+	 </div>
+
+</body>
+
+</html>
