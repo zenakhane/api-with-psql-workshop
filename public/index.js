@@ -15,7 +15,6 @@ document.addEventListener('alpine:init', () => {
 			.then(r => r.json())
 			.then(data => this.garments = data.data );
         },
-
     filterPrices(){
         fetch(`/api/garments?price=${this.maxPrice}`)
         .then(r => r.json())
