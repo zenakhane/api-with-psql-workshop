@@ -16,9 +16,12 @@ document.addEventListener('alpine:init', () => {
 			.then(data => this.garments = data.data );
         },
     filterPrices(){
-        fetch(`/api/garments?price=${this.maxPrice}`)
+        console.log(this.maxPrice)
+        console.log(`/api/garments/${this.maxPrice}`)
+        fetch(`/api/garments/${this.maxPrice}`)
         .then(r => r.json())
         .then(data => this.garments = data.data );
     },
 }))
+
 })

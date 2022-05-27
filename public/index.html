@@ -50,11 +50,47 @@
 			  </div>
 			  <div>
 				 Filter by price range:
-				 <input type="range" name="priceRange" max="1000" step="50" class="priceRange" value="0">
-				 R<span class="showPriceRange">0</span>.00
+				 <input type="range" x-model="maxPrice" @change="filterPrices()" name="priceRange" max="1000" step="50" class="priceRange" value="0">
+				 R<span x-text="maxPrice" class="showPriceRange"></span>
 			  </div>
 		   </div>
 
+
+
+			<div class="add garment ">
+				<h2>Add garment</h2>
+				<!-- <img :src="`/images/${garment.img}`"> -->
+
+				<!-- <form action="/garment/" method="post" class="addGarmentForm" > -->
+					
+					<div class="field" >
+						<label for="">Description</label>
+						<input type="text" name="description" class="description" >
+					</div>
+					<div class="field" >
+						<label for="">Image</label>
+						<input type="text" name="img" class="img"  >
+					</div>
+					<div class="field">
+						<label for="">Price</label>
+						<input type="number" name="price" step = "0.01" class="price" >
+					</div>
+					<div class="field">
+						<label for="">Gender</label>
+						<div>
+							<input type="text" name="gender" class="gender" >
+						</div>
+					</div>
+					<div class="field">
+						<label for="">Season</label>
+						<div>
+							<input type="text" name="season" class="season" >
+						</div>
+					</div>
+					<div class="mt1">
+						<input type="button" name="action" value="Add" class="addGarmentBtn"  >
+						<input type="button" name="action" value="Hide" class="hideAddGarmetBtn" >
+					</div>
 		<div class="message hidden" >
 
 		</div>
