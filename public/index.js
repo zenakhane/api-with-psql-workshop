@@ -1,15 +1,13 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('app', () => ({
         init(){
-            this.filterData(),
-            this.filterPrices()
+            this.filterData();
         
         },
         garments : [],
         genderFilter: '',
         seasonFilter:'',
         maxPrice:0,
-
         filterData(){
             fetch(`/api/garments?gender=${this.genderFilter}&season=${this.seasonFilter}`)
 			.then(r => r.json())

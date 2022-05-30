@@ -9,17 +9,17 @@ module.exports = function (app, db) {
 	app.get('/api/garments', async function (req, res) {
 
 		const { gender, season } = req.query;
-		let garments = await db.many(`select * from garment`);
+		let garments = await db.manyOrNone(`select * from garment`);
 		if(season) {
-			garments = await db.many(`select * from garment where season = $1`, [season]);
+			garments = await db.manyOrNone(`select * from garment where season = $1`, [season]);
 		}
 		// add some sql queries that filter on gender & season
 		
 		if(gender){
-			garments = await db.many('select * from garment where gender = $1',[gender])
+			garments = await db.manyOrNone('select * from garment where gender = $1',[gender])
 		}
 		if(season && gender){
-			garments = await db.many('select * from garment where season = $1 AND gender = $2',[season, gender])
+			garments = await db.manyOrNone('select * from garment where season = $1 AND gender = $2',[season, gender])
 		}
 		
 		res.json({
@@ -109,7 +109,7 @@ module.exports = function (app, db) {
 	});
 	app.get('/api/garments/:price', async function (req, res) {
 		const { price} = req.params
-		const result = await db.many(`select * from garment where price <= $1`,[price]);
+		const result = await db.manyOrNone(`select * from garment where price <= $1`,[price]);
 		res.json({
 			data: result
 		})

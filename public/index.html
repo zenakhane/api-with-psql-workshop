@@ -19,7 +19,7 @@
 		<h1>Missy Tee</h1>
 		<div class="missy">
 		   <div class="filter">
-			  <h2>Filter</h2>
+			  <h3>Filter a garment </h3>
 			  <div class="genders">
 				 <label>
 				 <input type="radio" x-model="genderFilter" @change="filterData()" name="gender" value="All"> All
@@ -105,7 +105,7 @@
 			  <template x-for="garment in garments">
 				 <div class="garment">
 					<li x-text="garment.description"></li>
-					<img :src="`/images/${garment.img}`">
+					<img :src="`./images/${garment.img}`">
 					<li x-text="garment.price"></li>
 					<li x-text="garment.season"></li>
 					<li x-text="garment.gender"></li>
