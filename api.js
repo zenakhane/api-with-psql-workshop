@@ -82,6 +82,7 @@ module.exports = function (app, db) {
 		try {
 
 			const { description, price, img, season, gender } = req.body;
+			console.log(req.body)
 
 			// insert a new garment in the database
 			 await db.none(`insert into garment( description, price, img, season, gender) values($1,$2,$3,$4,$5)`, [ description, price, img, season, gender]);

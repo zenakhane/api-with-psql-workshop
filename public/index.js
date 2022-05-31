@@ -5,11 +5,11 @@ document.addEventListener('alpine:init', () => {
 
         },
         garms: {
-      description:'',
-        img:'',
-        price:0,
-        season:'',
-        gender:'',
+            description: '',
+            img: '',
+            price: 0,
+            season: '',
+            gender: '',
         },
         garments: [],
         genderFilter: '',
@@ -26,15 +26,18 @@ document.addEventListener('alpine:init', () => {
                 .then(data => this.garments = data.data);
         },
         addGarment() {
-            fetch(`/api/garment/`,{
+            fetch(`/api/garment/`, {
                 method: 'POST',
-            
-                headers:{
+
+                headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({description, price, img, season, gender} = this)
-            })
+                body: JSON.stringify({ description, price, img, season, gender } = this.garms)
+            }).then(() => this.filterData())
+                .catch(err => console.log(err))
+                
         }
     })
-   
-)})
+
+    )
+})
