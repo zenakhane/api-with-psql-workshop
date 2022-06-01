@@ -21,8 +21,8 @@
 		<div class="missy">
 			<div style="text-align: center;" class="filter">
 				<h3 style="text-align: center;font-style: oblique;">Filter a garment </h3>
-				<div  style="text-align: center;" class="genders">
-					<label >
+				<div style="text-align: center;" class="genders">
+					<label>
 						<input type="radio" x-model="genderFilter" @change="filterData()" name="gender" value="All"> All
 					</label>
 					<label>
@@ -62,74 +62,75 @@
 					R<span x-text="maxPrice" class="showPriceRange"></span>
 				</div>
 			</div>
-				<div class="message hidden">
+			<div class="message hidden">
 
+			</div>
+			<div class="addGarment">
+
+				<div class="addBtn">
+					<button @click="openGarment()">Add garment</button>
 				</div>
-				<div class="addGarment" >
-					<div class="add garment ">
-						<h2>Add garment</h2>
-						<!-- <img src="/images/{{img}}" alt=""> -->
-		
-						<!-- <form action="/garment/" method="post" class="addGarmentForm" > -->
-							
-							<div class="field" >
-								<label for="">Description</label>
-								<input type="text" x-model="garms.description" name="description" class="description" >
-							</div>
-							<div class="field" >
-								<label for="">Image</label>
-								<input type="text" x-model="garms.img" name="img" class="img"  >
-							</div>
-							<div class="field">
-								<label for="">Price</label>
-								<input type="number" x-model="garms.price"  name="price" step = "0.01" class="price" >
-							</div>
-							<div class="field">
-								<label for="">Gender</label>
-								<div>
-									<input type="text" x-model="garms.gender" name="gender" class="gender" >
-								</div>
-							</div>
-							<div class="field">
-								<label for="">Season</label>
-								<div>
-									<input type="text" x-model="garms.season" name="season" class="season" >
-								</div>
-							</div>
-							<div class="mt1">
-								<input type="button" @click="addGarment()" name="action" value="Add" class="addGarmentBtn"  >
-								<input type="button" name="action" value="Hide" class="hideAddGarmetBtn" >
-							</div>
-						<!-- </form> -->
+				<div class="add garment" :class ="{'hidden': !open}" >
+					<h2>Add garment</h2>
+
+					<div class="field">
+						<label for="">Description</label>
+						<input type="text" x-model="garms.description" name="description" class="description">
 					</div>
-		
-				</div>
-				<div>
-					<div class="searchResults">
-
+					<div class="field">
+						<label for="">Image</label>
+						<input type="text" x-model="garms.img" name="img" class="img">
 					</div>
-
+					<div class="field">
+						<label for="">Price</label>
+						<input type="number" x-model="garms.price" name="price" step="0.01" class="price">
+					</div>
+					<div class="field">
+						<label for="">Gender</label>
+						<div>
+							<input type="text" x-model="garms.gender" name="gender" class="gender">
+						</div>
+					</div>
+					<div class="field">
+						<label for="">Season</label>
+						<div>
+							<input type="text" x-model="garms.season" name="season" class="season">
+						</div>
+					</div>
+					<div class="mt1">
+						<input type="button" @click="addGarment()" name="action" value="Add" class="addGarmentBtn">
+						<input type="button" @click="hideGarment()" name="action" value="Hide" class="hideAddGarmetBtn">
+					</div>
+					<!-- </form> -->
 				</div>
+
 			</div>
 			<div>
+				<div class="searchResults">
 
-				<h2 style="font: 2em sans-serif;">Garments <span x-text="garments.length"></span></h2>
+				</div>
 
-				<ul class="garments">
-					<template x-for="garment in garments">
-						<div class="garment">
-							<li style="font-size: large;" x-text="garment.description"></li>
-							<img :src="`/images/${garment.img}`">
-							<li x-text="garment.gender"></li>
-							<li x-text="garment.season"></li>
-                        	<li style="font-weight: bolder;" x-text="garment.price"></li>
-
-						</div>
-					</template>
-				</ul>
 			</div>
 		</div>
-		
+		<div>
+
+			<h2 style="font: 2em sans-serif;">Garments <span x-text="garments.length"></span></h2>
+
+			<ul class="garments">
+				<template x-for="garment in garments">
+					<div class="garment">
+						<li style="font-size: large;" x-text="garment.description"></li>
+						<img :src="`/images/${garment.img}`">
+						<li x-text="garment.gender"></li>
+						<li x-text="garment.season"></li>
+						<li style="font-weight: bolder;" x-text="garment.price"></li>
+
+					</div>
+				</template>
+			</ul>
+		</div>
+	</div>
+
 </body>
 
 </html>

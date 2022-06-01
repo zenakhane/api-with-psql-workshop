@@ -15,6 +15,15 @@ document.addEventListener('alpine:init', () => {
         genderFilter: '',
         seasonFilter: '',
         maxPrice: 0,
+        open: false,
+
+
+        openGarment() {
+            this.open = true
+        },
+        hideGarment() {
+            this.open = !this.open
+        },
         filterData() {
             fetch(`/api/garments?gender=${this.genderFilter}&season=${this.seasonFilter}`)
                 .then(r => r.json())
@@ -35,7 +44,7 @@ document.addEventListener('alpine:init', () => {
                 body: JSON.stringify({ description, price, img, season, gender } = this.garms)
             }).then(() => this.filterData())
                 .catch(err => console.log(err))
-                
+
         }
     })
 
